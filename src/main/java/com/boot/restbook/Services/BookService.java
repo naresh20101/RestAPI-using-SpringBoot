@@ -2,6 +2,7 @@ package com.boot.restbook.Services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
@@ -32,5 +33,10 @@ public class BookService {
 	{
 		list.add(b);
 		return b;
+	}
+	//delete book
+	public void deleteBook(int id)
+	{
+		list=list.stream().filter(book->book.getId()!=id).collect(Collectors.toList());
 	}
 }
